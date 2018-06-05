@@ -6,7 +6,7 @@ English | [简体中文](./README.zh-CN.md)
 
 An out-of-box UI solution for enterprise applications as a React boilerplate.
 
-![](https://gw.alipayobjects.com/zos/rmsportal/xEdBqwSzvoSapmnSnYjU.png)
+
 
 - Preview: http://preview.pro.ant.design
 - Home Page: http://pro.ant.design
@@ -86,10 +86,3 @@ More instruction at [documentation](http://pro.ant.design/docs/getting-started).
 
 Modern browsers and IE11.
 
-## Contributing
-
-Any Contribution of following ways will be welcome:
-
-- Use Ant Design Pro in your daily work.
-- Submit [issue](http://github.com/ant-design/ant-design-pro/issues) to report bug or ask questions.
-- Propose [pull request](http://github.com/ant-design/ant-design-pro/pulls) to improve our code.
