@@ -15,7 +15,7 @@ An out-of-box UI solution for enterprise applications as a React boilerplate.
 - FAQ: http://pro.ant.design/docs/faq
 - Mirror Site in China: http://ant-design-pro.gitee.io
 
-## Translation Recruitment :loudspeaker:
+## Translation Recruitment :loudspeaker :
 
 We need your help: https://github.com/ant-design/ant-design-pro/issues/120
 
