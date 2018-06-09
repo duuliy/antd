@@ -80,7 +80,7 @@ const RadioGroup = Radio.Group;
           loading: false,
           ModalText: 'Content of the modal',
           confirmLoading: false,
-          visible: false       //弹框用的状态
+          visible: false      //弹框用的状态
           };
     }
 
@@ -161,12 +161,12 @@ const RadioGroup = Radio.Group;
           dataIndex: 'year',
           // sorter: true,
           width: 250,
-          defaultSortOrder: 'descend',
-          sorter: (a, b) =>{
-            if (a.age > b.age) return -1;
-            if (a.age < b.age) return 1;
-            // a.age - b.age
-          } 
+          // defaultSortOrder: 'descend',
+          // sorter: (a, b) =>{
+          //   if (a.age > b.age) return -1;
+          //   if (a.age < b.age) return 1;
+          //   // a.age - b.age
+          // } 
         }, {
           title: '性别',
           // dataIndex: 'address',
@@ -223,8 +223,24 @@ const RadioGroup = Radio.Group;
             </Fragment>
           ),
         }];
-        
-        const data = this.props.data;
+
+        console.log(this.props.data.length)
+
+        // this.setState
+
+
+      
+      // if(this.props.data){
+      //   const data = this.props.data;
+      // }
+
+        const data = [];
+        if(this.props.data&&(this.props.data.length>0)){
+          this.props.data.map(item=>{
+            data.push(item)
+          })
+        }
+
         // for (let i = 0; i < 46; i++) {
         //   data.push({
         //     key: i,
@@ -236,15 +252,19 @@ const RadioGroup = Radio.Group;
         //     ang:`否`
         //   });
         // }
+        // console.log(this.props.data)
+        // console.log(data)
+
+        // if(this.props.data){
+
+        // }
         // // console.log(data[0].name);
         // // const data = 
         // // console.log(this.props.data[0]);
         // const  datt  = this.props.data;
         // console.log(data[0]);
         // console.log(datt[0].id);
-      //   this.props.data.map(item=>{
-      //     console.log(item)
-      // })
+   
         const parentMethods = {
           handleOk: this.handleOk,
           handleCancel: this.handleCancel,
