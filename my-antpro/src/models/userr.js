@@ -1,5 +1,5 @@
 import { qqqUser2,queryUser2, removeUser2, addUser2 } from '../services/api';
-// import queryString from 'query-string'   //传数据用
+import queryString from 'query-string'   //传数据用
 export default {
     namespace: 'userr',
 
@@ -12,6 +12,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {   //history，windows原生方法
             history.listen((location) => {
+                // console.log(location)
                 if (location.pathname === '/Home/Users') {   //在这里发起请求拿到data
                       console.log(location.pathname)
                     dispatch({
@@ -34,7 +35,6 @@ export default {
             }
         },
         *fetch({ payload }, { call, put }) {
-            console.log(555)
             const response = yield call(queryUser2, payload);
             if (response) {
                 yield put({
@@ -47,6 +47,7 @@ export default {
             console.log(555)
             const respones = yield call(addUser2, patload);
             if (response) {
+                console.log(554)
                 yield put({
                     type: 'save',
                     payload: response,
@@ -54,8 +55,12 @@ export default {
             }
         },
         *remove({ payload }, { call, put }) {
-            const respones = yield call(removeUser2, payload);
+            console.log(555)
+            console.log(payload)
+            const payload2=queryString.parse(payload)
+            const respones = yield call(removeUser2, payload2);
             if (response) {
+                console.log(554)
                 yield put({
                     type: 'save',
                     payload: response,
