@@ -109,6 +109,14 @@ export default class Users extends PureComponent {
     expandForm: false,
     modalVisible: false
   };
+  // shouldComponentUpdate(){
+  //   console.log(this.props)
+  // }
+//   componentWillMount(){
+//     //  on监听事件
+//     console.log(this.props)
+// }
+
 
   //发起新增
 
@@ -141,18 +149,19 @@ export default class Users extends PureComponent {
   searchUsers = (props) => {
     // const { form, dispatch } = this.props;
     const { modalVisible, handleAdd, form, handleModalVisible } = props;
-    console.log("开始查询了")
+    
     form.validateFields((err, fieldsValue) => {  //校验并获取一组输入域的值与 Error
       if (err) return;
       form.resetFields();    //重置控件
       //这里发起请求去做增加功能
+      // console.log("开始查询了")
       console.log(fieldsValue)
       // handleAdd(fieldsValue);
     });
-    dispatch({
-      type: 'userr/fetch',
-      payload: {},
-    });
+    // dispatch({
+    //   type: 'userr/fetch',
+    //   payload: {},
+    // });
     // console.log(connect)
   };
   //查询表单提交
@@ -174,10 +183,11 @@ export default class Users extends PureComponent {
       //   formValues: values,
       // });
 
-      // dispatch({
-      //   type: 'rule/fetch',
-      //   payload: values,
-      // });
+      dispatch({
+        type: 'userr/fetch',
+        payload: {},
+      });
+
     });
   };
   // 重置
@@ -336,10 +346,15 @@ export default class Users extends PureComponent {
         break;
     }
   };
-  //查询
-  search(com) {
-    console.log(com)
-
+  //删除
+  onMydelte = (key) => {
+    
+    console.log(key)
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'userr/remove',
+      payload: {'id':key},
+    });
   }
   render() {
     const { selectedRows, modalVisible } = this.state;
@@ -349,7 +364,7 @@ export default class Users extends PureComponent {
     };
     //从model拿数据
     const { userr: { data }, loading } = this.props;
-    // console.log(data)
+
     //更多操作 下拉菜单
     const menu = (
       <Menu onClick={this.handleMenuClick} selectedKeys={[]}>
@@ -376,7 +391,7 @@ export default class Users extends PureComponent {
             </span>
           </div>
 
-          <UserS data={data} onMyUpdata={this.search}>
+          <UserS data={data} onMydelte={this.onMydelte}>
 
           </UserS>
         </Card>
