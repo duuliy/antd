@@ -129,8 +129,11 @@ const RadioGroup = Radio.Group;
         });
       }
       //气泡
-      confirm=(e)=> {
-        console.log(e);
+      confirmd=(a)=> {
+        // console.log(e);
+        // console.log(a.id);
+        const key=a.id
+        this.props.onMydelte(key)
         message.success('Click on Yes');
       }
       
@@ -213,18 +216,18 @@ const RadioGroup = Radio.Group;
           dataIndex:'edit',
           dataIndex:'dele',
           width:300,
-          render: () => (
+          render: (text, record, index) => (
             <Fragment>
               <a href="javascript:;" onClick={this.showModal}>编辑</a>
               <Divider type="vertical" />
-              <Popconfirm title="是否要删除?" onConfirm={this.confirm} onCancel={this.cancel} okText="删除" cancelText="退出">
+              <Popconfirm title="是否要删除?" onConfirm={()=>this.confirmd(record)} onCancel={this.cancel} okText="删除" cancelText="退出">
               <a href="javascript:;">删除</a>
               </Popconfirm>
             </Fragment>
           ),
         }];
 
-        console.log(this.props.data.length)
+        // console.log(this.props.data.length)
 
         // this.setState
 
